@@ -1,0 +1,6 @@
+file_format: 1
+id: my_keyboard
+name: My DIY 5x6 Keyboard
+type: shield
+columns: 6
+rows: 5
