@@ -1,0 +1,31 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        /* 二极管方向：col2row 表示电流从列流向行（二极管黑圈指向行） */
+        diode-direction = "col2row"; 
+
+        /* 行引脚定义 (5行) */
+        row-gpios
+            = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P0.06
+            , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P0.08
+            , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P0.17
+            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P0.20
+            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P0.22
+            ;
+
+        /* 列引脚定义 (6列) */
+        col-gpios
+            = <&pro_micro 5 GPIO_ACTIVE_HIGH>  // P1.11
+            , <&pro_micro 6 GPIO_ACTIVE_HIGH>  // P1.13
+            , <&pro_micro 7 GPIO_ACTIVE_HIGH>  // P1.15
+            , <&pro_micro 8 GPIO_ACTIVE_HIGH>  // P0.02
+            , <&pro_micro 9 GPIO_ACTIVE_HIGH>  // P0.29
+            , <&pro_micro 10 GPIO_ACTIVE_HIGH> // P0.31
+            ;
+    };
+};
